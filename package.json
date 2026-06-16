@@ -1,0 +1,20 @@
+{
+  "name": "speechify-cookbook",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Recipes and examples for the Speechify Text-to-Speech and Voice Agents APIs.",
+  "homepage": "https://docs.speechify.ai",
+  "license": "MIT",
+  "packageManager": "pnpm@10.9.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yaml,yml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,yaml,yml}\"",
+    "typecheck": "pnpm -r --if-present exec tsc --noEmit"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
+}

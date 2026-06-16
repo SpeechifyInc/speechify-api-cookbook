@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.uv/
+
+# Secrets
+.env
+.env.local
+!.env.example
+
+# Generated audio / artifacts
+*.mp3
+*.wav
+*.ogg
+*.aac
+*.flac
+!**/fixtures/**
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
