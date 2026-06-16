@@ -1,0 +1,20 @@
+{
+  "name": "tts-typescript-speech-marks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Use word-level speech marks to generate a WebVTT caption file synced to the audio.",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@speechify/api": "catalog:",
+    "dotenv": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}

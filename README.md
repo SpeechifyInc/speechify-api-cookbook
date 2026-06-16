@@ -34,6 +34,8 @@ pnpm install && pnpm start  # writes output.mp3
 | [streaming](./recipes/text-to-speech/python/streaming)           | Python     | Stream audio to disk as it is generated.                  |
 | [ssml-emotion](./recipes/text-to-speech/typescript/ssml-emotion) | TypeScript | Control emotion, pitch, rate, pauses & emphasis via SSML. |
 | [ssml-emotion](./recipes/text-to-speech/python/ssml-emotion)     | Python     | Control emotion, pitch, rate, pauses & emphasis via SSML. |
+| [speech-marks](./recipes/text-to-speech/typescript/speech-marks) | TypeScript | Word-level timestamps → WebVTT captions.                  |
+| [speech-marks](./recipes/text-to-speech/python/speech-marks)     | Python     | Word-level timestamps → WebVTT captions.                  |
 
 ### Voice Agents
 

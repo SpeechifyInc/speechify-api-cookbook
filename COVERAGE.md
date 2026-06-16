@@ -11,7 +11,7 @@ Legend: ✅ available · ⬜ planned / wanted · — not applicable
 | quickstart (synthesize to file)        |     ✅     |   ✅   |  ⬜  |
 | streaming                              |     ✅     |   ✅   |  ⬜  |
 | SSML controls (pitch / rate / emotion) |     ✅     |   ✅   |  ⬜  |
-| word-level timestamps (caption sync)   |     ⬜     |   ⬜   |  ⬜  |
+| word-level timestamps (caption sync)   |     ✅     |   ✅   |  ⬜  |
 | voice cloning                          |     ⬜     |   ⬜   |  ⬜  |
 
 ## Voice Agents

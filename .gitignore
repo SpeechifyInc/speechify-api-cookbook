@@ -19,6 +19,8 @@ __pycache__/
 *.ogg
 *.aac
 *.flac
+*.vtt
+*.srt
 !**/fixtures/**
 
 # Build output

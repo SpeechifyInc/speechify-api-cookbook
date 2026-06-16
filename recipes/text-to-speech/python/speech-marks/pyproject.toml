@@ -1,0 +1,9 @@
+[project]
+name = "tts-python-speech-marks"
+version = "0.1.0"
+description = "Use word-level speech marks to generate a WebVTT caption file synced to the audio."
+requires-python = ">=3.9"
+dependencies = [
+    "speechify-api>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
