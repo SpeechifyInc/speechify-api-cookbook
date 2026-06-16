@@ -1,0 +1,19 @@
+{
+  "name": "tts-typescript-quickstart-rest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Synthesize speech with the Speechify TTS REST API directly (no SDK), using fetch.",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}

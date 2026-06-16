@@ -55,6 +55,11 @@ speechify-cookbook/
 - Language folders are exactly `typescript` or `python`.
 - Recipe names describe the task, not the API method: `quickstart`, `streaming-to-file`,
   `clone-a-voice`, `phone-call-agent`.
+- Recipes use the official SDK by default. A **native (raw HTTP)** variant of a recipe
+  takes the same name plus a `-rest` suffix (e.g. `quickstart` → `quickstart-rest`) and
+  has no SDK dependency. Provide native variants where they add value (e.g. quickstarts,
+  or anything a user on an SDK-less language would need); the SDK version stays the
+  recommended path. Voice Agents recipes are native today because there is no SDK yet.
 
 ## Workspace mechanics
 
