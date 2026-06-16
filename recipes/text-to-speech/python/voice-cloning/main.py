@@ -4,6 +4,7 @@ import os
 
 from dotenv import load_dotenv
 from speechify import Speechify
+from speechify.core import ApiError
 
 # Bundled sample: ~26s of NASA ISS spacewalk audio (public domain).
 SAMPLE_PATH = os.path.join(os.path.dirname(__file__), "fixtures", "spacewalk.wav")
@@ -21,13 +22,22 @@ def main() -> None:
     # 1. Clone a voice from an audio sample (10-30s of clean speech works well).
     #    `consent` is REQUIRED: a JSON string attesting you have the speaker's
     #    permission to clone their voice. Use the real consenting person's details.
-    with open(SAMPLE_PATH, "rb") as sample:
-        voice = client.tts.voices.create(
-            name="cookbook-cloned-voice",
-            gender="male",
-            sample=sample,
-            consent=json.dumps({"fullName": "Jane Doe", "email": "jane@example.com"}),
-        )
+    try:
+        with open(SAMPLE_PATH, "rb") as sample:
+            voice = client.tts.voices.create(
+                name="cookbook-cloned-voice",
+                gender="male",
+                sample=sample,
+                consent=json.dumps({"fullName": "Jane Doe", "email": "jane@example.com"}),
+            )
+    except ApiError as err:
+        # Voice cloning is gated by plan. A 402 means it isn't included in yours.
+        if err.status_code == 402:
+            raise SystemExit(
+                "\nVoice cloning isn't included in your current Speechify plan.\n"
+                "Upgrade to a plan that includes voice cloning: https://speechify.ai/pricing\n"
+            )
+        raise
     print(f"Cloned voice created: {voice.id} ({voice.display_name}, type={voice.type})")
 
     try:

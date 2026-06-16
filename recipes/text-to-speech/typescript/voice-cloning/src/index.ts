@@ -1,7 +1,7 @@
 import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
-import { SpeechifyClient } from "@speechify/api";
+import { SpeechifyClient, SpeechifyError } from "@speechify/api";
 
 if (!process.env.SPEECHIFY_API_KEY) {
   throw new Error("Set SPEECHIFY_API_KEY (copy .env.example to .env).");
@@ -16,12 +16,25 @@ async function main() {
   // 1. Clone a voice from an audio sample (10–30s of clean speech works well).
   //    `consent` is REQUIRED: a JSON string attesting you have the speaker's
   //    permission to clone their voice. Use the real consenting person's details.
-  const voice = await client.tts.voices.create({
-    name: "cookbook-cloned-voice",
-    gender: "male",
-    sample: fs.createReadStream(samplePath),
-    consent: JSON.stringify({ fullName: "Jane Doe", email: "jane@example.com" }),
-  });
+  let voice;
+  try {
+    voice = await client.tts.voices.create({
+      name: "cookbook-cloned-voice",
+      gender: "male",
+      sample: fs.createReadStream(samplePath),
+      consent: JSON.stringify({ fullName: "Jane Doe", email: "jane@example.com" }),
+    });
+  } catch (err) {
+    // Voice cloning is gated by plan. A 402 means it isn't included in yours.
+    if (err instanceof SpeechifyError && err.statusCode === 402) {
+      console.error(
+        "\nVoice cloning isn't included in your current Speechify plan.\n" +
+          "Upgrade to a plan that includes voice cloning: https://speechify.ai/pricing\n",
+      );
+      process.exit(1);
+    }
+    throw err;
+  }
   console.log(`Cloned voice created: ${voice.id} (${voice.displayName}, type=${voice.type})`);
 
   try {

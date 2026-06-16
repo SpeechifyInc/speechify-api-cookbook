@@ -6,8 +6,9 @@ full create → use → delete lifecycle.
 ## Prerequisites
 
 - A Speechify API key — https://console.speechify.ai/api-keys
-- **Voice cloning enabled on your plan** (the API returns `402 voice_cloning_not_included`
-  otherwise).
+- **Voice cloning enabled on your plan** — otherwise the recipe exits with a message
+  pointing to [Speechify pricing](https://speechify.ai/pricing) (the API returns
+  `402 voice_cloning_not_included`).
 - Python 3.9+ and [uv](https://docs.astral.sh/uv/)
 
 ## Setup
