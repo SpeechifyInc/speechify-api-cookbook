@@ -12,7 +12,7 @@ Legend: ✅ available · ⬜ planned / wanted · — not applicable
 | streaming                              |     ✅     |   ✅   |  ⬜  |
 | SSML controls (pitch / rate / emotion) |     ✅     |   ✅   |  ⬜  |
 | word-level timestamps (caption sync)   |     ✅     |   ✅   |  ⬜  |
-| voice cloning                          |     ⬜     |   ⬜   |  ⬜  |
+| voice cloning                          |     ✅     |   ✅   |  ⬜  |
 
 ## Voice Agents
 
