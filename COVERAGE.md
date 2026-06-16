@@ -9,8 +9,8 @@ Legend: ✅ available · ⬜ planned / wanted · — not applicable
 | Recipe                                 | TypeScript | Python | Rust |
 | -------------------------------------- | :--------: | :----: | :--: |
 | quickstart (synthesize to file)        |     ✅     |   ✅   |  ⬜  |
-| streaming                              |     ⬜     |   ⬜   |  ⬜  |
-| SSML controls (pitch / rate / emotion) |     ⬜     |   ⬜   |  ⬜  |
+| streaming                              |     ✅     |   ✅   |  ⬜  |
+| SSML controls (pitch / rate / emotion) |     ✅     |   ✅   |  ⬜  |
 | word-level timestamps (caption sync)   |     ⬜     |   ⬜   |  ⬜  |
 | voice cloning                          |     ⬜     |   ⬜   |  ⬜  |
 

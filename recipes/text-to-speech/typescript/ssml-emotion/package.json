@@ -1,0 +1,20 @@
+{
+  "name": "tts-typescript-ssml-emotion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Control emotion, pitch, rate, pauses, and emphasis with SSML using the Speechify TTS API.",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@speechify/api": "catalog:",
+    "dotenv": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}
