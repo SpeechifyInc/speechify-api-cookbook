@@ -20,8 +20,9 @@ suffix). See `agents/monorepo.md` for the convention.
 
 ## Voice Agents
 
-Voice Agents recipes are native REST (`-rest`); `realtime-conversation` previews the Python
-SDK's upcoming realtime support (pinned to the SDK's pre-release branch until it ships).
+Voice Agents recipes are native REST (`-rest`); `realtime-conversation` previews the
+SDK's upcoming realtime support in both TypeScript and Python (pinned to the SDK's
+pre-release branch until it ships).
 
 | Recipe                                         | TypeScript | Python | Rust |
 | ---------------------------------------------- | :--------: | :----: | :--: |
@@ -29,7 +30,7 @@ SDK's upcoming realtime support (pinned to the SDK's pre-release branch until it
 | manage agents (CRUD)                           |     ✅     |   ✅   |  ⬜  |
 | inspect conversation transcript                |     ✅     |   ✅   |  ⬜  |
 | browser widget embed                           |     ⬜     |   —    |  —   |
-| realtime conversation (stream audio in/out)    |     ⬜     |   ✅   |  ⬜  |
+| realtime conversation (stream audio in/out)    |     ✅     |   ✅   |  ⬜  |
 
 > Rust columns are tracked for planning but Rust tooling is **not enabled yet** — see
 > `agents/monorepo.md`.

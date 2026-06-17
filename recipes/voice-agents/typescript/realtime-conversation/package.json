@@ -1,0 +1,20 @@
+{
+  "name": "voice-agents-typescript-realtime-conversation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Stream audio to a Speechify voice agent in real time and save its spoken reply.",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@speechify/api": "github:SpeechifyInc/speechify-api-sdk-typescript#realtime-connect",
+    "dotenv": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}
