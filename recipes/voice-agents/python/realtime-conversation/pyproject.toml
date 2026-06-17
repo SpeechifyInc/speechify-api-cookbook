@@ -1,0 +1,11 @@
+[project]
+name = "voice-agents-python-realtime-conversation"
+version = "0.1.0"
+description = "Stream audio to a Speechify voice agent in real time and save its spoken reply."
+requires-python = ">=3.9"
+dependencies = [
+    # Realtime support (speechify.realtime) ships in the SDK's realtime branch until released;
+    # switch to "speechify-api>=<next-release>" once published to PyPI.
+    "speechify-api @ git+https://github.com/SpeechifyInc/speechify-api-sdk-python.git@realtime-connect",
+    "python-dotenv>=1.0.0",
+]

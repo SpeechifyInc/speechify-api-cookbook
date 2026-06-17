@@ -43,17 +43,19 @@ pnpm install && pnpm start  # writes output.mp3
 
 ### Voice Agents
 
-Voice Agents has no SDK yet, so every recipe is **native REST** (`-rest` suffix). The bare
-names are reserved for SDK versions once an SDK adds Voice Agents support.
+Voice Agents recipes are **native REST** (`-rest` suffix) today. The first **SDK** recipe,
+`realtime-conversation`, previews the Python SDK's upcoming realtime support — it is pinned
+to the SDK's pre-release branch until that ships, then switches to the published version.
 
-| Recipe                                                                                         | Language   | Description                                           |
-| ---------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------- |
-| [quickstart-rest](./recipes/voice-agents/typescript/quickstart-rest)                           | TypeScript | Create an agent and open a live conversation session. |
-| [quickstart-rest](./recipes/voice-agents/python/quickstart-rest)                               | Python     | Create an agent and open a live conversation session. |
-| [manage-agents-rest](./recipes/voice-agents/typescript/manage-agents-rest)                     | TypeScript | Agent CRUD: create, list, get, update, delete.        |
-| [manage-agents-rest](./recipes/voice-agents/python/manage-agents-rest)                         | Python     | Agent CRUD: create, list, get, update, delete.        |
-| [conversation-transcript-rest](./recipes/voice-agents/typescript/conversation-transcript-rest) | TypeScript | Start a conversation and read its transcript.         |
-| [conversation-transcript-rest](./recipes/voice-agents/python/conversation-transcript-rest)     | Python     | Start a conversation and read its transcript.         |
+| Recipe                                                                                         | Language   | Description                                                                          |
+| ---------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------ |
+| [quickstart-rest](./recipes/voice-agents/typescript/quickstart-rest)                           | TypeScript | Create an agent and open a live conversation session.                                |
+| [quickstart-rest](./recipes/voice-agents/python/quickstart-rest)                               | Python     | Create an agent and open a live conversation session.                                |
+| [manage-agents-rest](./recipes/voice-agents/typescript/manage-agents-rest)                     | TypeScript | Agent CRUD: create, list, get, update, delete.                                       |
+| [manage-agents-rest](./recipes/voice-agents/python/manage-agents-rest)                         | Python     | Agent CRUD: create, list, get, update, delete.                                       |
+| [conversation-transcript-rest](./recipes/voice-agents/typescript/conversation-transcript-rest) | TypeScript | Start a conversation and read its transcript.                                        |
+| [conversation-transcript-rest](./recipes/voice-agents/python/conversation-transcript-rest)     | Python     | Start a conversation and read its transcript.                                        |
+| [realtime-conversation](./recipes/voice-agents/python/realtime-conversation)                   | Python     | Stream audio to a voice agent in real time and save its spoken reply (SDK realtime). |
 
 See [`COVERAGE.md`](./COVERAGE.md) for the full product × language matrix and what's planned.
 
