@@ -43,9 +43,17 @@ pnpm install && pnpm start  # writes output.mp3
 
 ### Voice Agents
 
-| Recipe                                                     | Language   | Description                                                  |
-| ---------------------------------------------------------- | ---------- | ------------------------------------------------------------ |
-| [quickstart](./recipes/voice-agents/typescript/quickstart) | TypeScript | Create an agent and open a live conversation session (REST). |
+Voice Agents has no SDK yet, so every recipe is **native REST** (`-rest` suffix). The bare
+names are reserved for SDK versions once an SDK adds Voice Agents support.
+
+| Recipe                                                                                         | Language   | Description                                           |
+| ---------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------- |
+| [quickstart-rest](./recipes/voice-agents/typescript/quickstart-rest)                           | TypeScript | Create an agent and open a live conversation session. |
+| [quickstart-rest](./recipes/voice-agents/python/quickstart-rest)                               | Python     | Create an agent and open a live conversation session. |
+| [manage-agents-rest](./recipes/voice-agents/typescript/manage-agents-rest)                     | TypeScript | Agent CRUD: create, list, get, update, delete.        |
+| [manage-agents-rest](./recipes/voice-agents/python/manage-agents-rest)                         | Python     | Agent CRUD: create, list, get, update, delete.        |
+| [conversation-transcript-rest](./recipes/voice-agents/typescript/conversation-transcript-rest) | TypeScript | Start a conversation and read its transcript.         |
+| [conversation-transcript-rest](./recipes/voice-agents/python/conversation-transcript-rest)     | Python     | Start a conversation and read its transcript.         |
 
 See [`COVERAGE.md`](./COVERAGE.md) for the full product × language matrix and what's planned.
 

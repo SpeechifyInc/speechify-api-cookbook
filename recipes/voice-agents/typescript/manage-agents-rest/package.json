@@ -1,9 +1,9 @@
 {
-  "name": "voice-agents-typescript-quickstart",
+  "name": "voice-agents-typescript-manage-agents-rest",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Create a Speechify Voice Agent and open a live conversation session over REST.",
+  "description": "Create, list, get, update, and delete Speechify Voice Agents via the REST API (no SDK).",
   "scripts": {
     "start": "tsx src/index.ts",
     "typecheck": "tsc --noEmit"

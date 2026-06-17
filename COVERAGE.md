@@ -20,12 +20,16 @@ suffix). See `agents/monorepo.md` for the convention.
 
 ## Voice Agents
 
+Voice Agents has no SDK yet — all recipes are native REST (`-rest`). Bare names are
+reserved for SDK versions.
+
 | Recipe                                         | TypeScript | Python | Rust |
 | ---------------------------------------------- | :--------: | :----: | :--: |
-| quickstart (create agent + start conversation) |     ✅     |   ⬜   |  ⬜  |
-| live WebSocket audio session                   |     ⬜     |   ⬜   |  ⬜  |
+| quickstart (create agent + start conversation) |     ✅     |   ✅   |  ⬜  |
+| manage agents (CRUD)                           |     ✅     |   ✅   |  ⬜  |
+| inspect conversation transcript                |     ✅     |   ✅   |  ⬜  |
 | browser widget embed                           |     ⬜     |   —    |  —   |
-| inspect conversation transcript                |     ⬜     |   ⬜   |  ⬜  |
+| live audio session (LiveKit room)              |     ⬜     |   ⬜   |  ⬜  |
 
 > Rust columns are tracked for planning but Rust tooling is **not enabled yet** — see
 > `agents/monorepo.md`.

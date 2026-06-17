@@ -1,0 +1,19 @@
+{
+  "name": "voice-agents-typescript-conversation-transcript-rest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Start a conversation and read its transcript via the Speechify Voice Agents REST API (no SDK).",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}

@@ -1,0 +1,9 @@
+[project]
+name = "voice-agents-python-quickstart-rest"
+version = "0.1.0"
+description = "Create a Speechify Voice Agent and open a live conversation session via the REST API (no SDK)."
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+]

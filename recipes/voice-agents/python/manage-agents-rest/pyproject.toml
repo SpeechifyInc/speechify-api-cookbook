@@ -1,0 +1,9 @@
+[project]
+name = "voice-agents-python-manage-agents-rest"
+version = "0.1.0"
+description = "Create, list, get, update, and delete Speechify Voice Agents via the REST API (no SDK)."
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+]
