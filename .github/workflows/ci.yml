@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # ── TypeScript: typecheck all recipes ─────────────────────────────────────
+  typecheck:
+    name: TypeScript typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "10.9.0"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm typecheck
+
+  # ── Prettier: check formatting ─────────────────────────────────────────────
+  format:
+    name: Format check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "10.9.0"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm format:check
+
+  # ── Python: resolve dependencies for every recipe ─────────────────────────
+  python-sync:
+    name: Python sync (${{ matrix.recipe }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe:
+          - recipes/text-to-speech/python/quickstart
+          - recipes/text-to-speech/python/quickstart-rest
+          - recipes/text-to-speech/python/streaming
+          - recipes/text-to-speech/python/ssml-emotion
+          - recipes/text-to-speech/python/speech-marks
+          - recipes/text-to-speech/python/voice-cloning
+          - recipes/voice-agents/python/quickstart-rest
+          - recipes/voice-agents/python/manage-agents-rest
+          - recipes/voice-agents/python/conversation-transcript-rest
+          - recipes/voice-agents/python/realtime-conversation
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "latest"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync ${{ matrix.recipe }}
+        run: uv sync
+        working-directory: ${{ matrix.recipe }}
