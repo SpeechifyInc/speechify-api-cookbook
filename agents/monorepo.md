@@ -1,10 +1,10 @@
 # Monorepo layout
 
-This is a **pnpm workspace** monorepo. Recipes are organized **by product, then by
-language, then by recipe**:
+This is a **pnpm workspace** monorepo. Recipes are organized **by product → language →
+flavor → recipe**:
 
 ```
-recipes/<product>/<language>/<recipe-name>/
+recipes/<product>/<language>/{sdk,native}/<recipe-name>/
 ```
 
 ```
@@ -12,54 +12,65 @@ speechify-cookbook/
 ├── AGENTS.md                  # entry point → points into agents/
 ├── agents/                    # modular, load-on-demand instructions
 ├── README.md                  # human-facing index of every recipe
-├── COVERAGE.md                # product × language matrix (what exists / is missing)
+├── COVERAGE.md                # product × language × flavor matrix
 ├── CONTRIBUTING.md
 ├── package.json               # workspace root (prettier, shared scripts)
-├── pnpm-workspace.yaml         # workspace globs + dependency catalog
-├── tsconfig.base.json          # shared TS compiler options
+├── pnpm-workspace.yaml        # workspace globs + dependency catalog
+├── tsconfig.base.json         # shared TS compiler options
 ├── templates/                 # copy-to-start scaffolds
 │   ├── typescript/recipe/
 │   └── python/recipe/
 └── recipes/
-    ├── text-to-speech/
+    ├── audio/                 # Text-to-Speech today; will expand
     │   ├── typescript/
-    │   │   └── quickstart/
-    │   └── python/
-    │       └── quickstart/
-    └── voice-agents/
-        └── typescript/
-            └── quickstart/
+    │   │   ├── sdk/quickstart/
+    │   │   └── native/quickstart/
+    │   ├── python/
+    │   │   ├── sdk/quickstart/
+    │   │   └── native/quickstart/
+    │   └── bash/
+    │       ├── sdk/.gitkeep        # no bash SDK; placeholder
+    │       └── native/.gitkeep     # curl recipes go here
+    └── agents/                # Voice Agents (reserved; recipes coming back)
+        ├── typescript/{sdk,native}/.gitkeep
+        ├── python/{sdk,native}/.gitkeep
+        └── bash/{sdk,native}/.gitkeep
 ```
 
 ## Why this shape
 
-- **Product first** reads naturally for a product-led company — a user lands on "TTS"
-  then picks their language. (Researched against Deepgram, ElevenLabs, and Cartesia
-  cookbooks; product-first + self-contained examples is the best fit here.)
+- **Product first** reads naturally for a product-led company — a user lands on "audio"
+  then picks their language.
+- **Flavor as a folder** (`sdk` / `native`) makes the two implementation styles first-class
+  and orthogonal to the recipe name. No `-rest` suffix to remember.
 - **Self-contained recipes**: each leaf folder has its own manifest, `.env.example`, and
   `README.md` so it can be copied out and run alone.
 
-## Languages and tooling (current scope: JS + Python)
+## Products
 
-| Language      | Manager  | Workspace member?                         | Notes                                                                       |
-| ------------- | -------- | ----------------------------------------- | --------------------------------------------------------------------------- |
-| TypeScript/JS | **pnpm** | Yes — matched by `recipes/*/typescript/*` | Run with `tsx`. Versions come from the `catalog:` in `pnpm-workspace.yaml`. |
-| Python        | **uv**   | No (managed per-recipe)                   | Each recipe has its own `pyproject.toml`; run with `uv run`.                |
+| Folder    | What                                        | Status                                      |
+| --------- | ------------------------------------------- | ------------------------------------------- |
+| `audio/`  | Text-to-Speech, plus future audio products. | Active. TypeScript on v2 SDK, Python on v1. |
+| `agents/` | Voice Agents.                               | Namespace reserved; recipes coming back.    |
 
-> Rust is planned but **not yet enabled** — do not add Rust tooling until requested. When
-> it lands it will follow the same axis (`recipes/<product>/rust/<recipe>/` with Cargo).
+## Languages and tooling
+
+| Language      | Manager  | Workspace member?                           | Notes                                                                       |
+| ------------- | -------- | ------------------------------------------- | --------------------------------------------------------------------------- |
+| TypeScript/JS | **pnpm** | Yes — matched by `recipes/*/typescript/*/*` | Run with `tsx`. Versions come from the `catalog:` in `pnpm-workspace.yaml`. |
+| Python        | **uv**   | No (managed per-recipe)                     | Each recipe has its own `pyproject.toml`; run with `uv run`.                |
+| Bash          | —        | No (curl scripts)                           | Native flavor only. Each recipe is a `.sh` you can copy-paste.              |
 
 ## Naming rules
 
-- Folders are **kebab-case**: `text-to-speech`, `voice-agents`, `streaming-to-file`.
-- Language folders are exactly `typescript` or `python`.
+- Folders are **kebab-case**: `audio`, `agents`, `streaming-to-file`.
+- Language folders are exactly `typescript`, `python`, or `bash`.
+- Flavor folders are exactly `sdk` or `native`.
 - Recipe names describe the task, not the API method: `quickstart`, `streaming-to-file`,
-  `clone-a-voice`, `phone-call-agent`.
-- Recipes use the official SDK by default. A **native (raw HTTP)** variant of a recipe
-  takes the same name plus a `-rest` suffix (e.g. `quickstart` → `quickstart-rest`) and
-  has no SDK dependency. Provide native variants where they add value (e.g. quickstarts,
-  or anything a user on an SDK-less language would need); the SDK version stays the
-  recommended path. Voice Agents recipes are native today because there is no SDK yet.
+  `clone-a-voice`, `phone-call-agent`. No `-rest` / `-sdk` suffix — the parent folder
+  encodes the flavor.
+- Empty leaf folders (a language with no recipes yet) carry a `.gitkeep` so the namespace
+  stays visible.
 
 ## Workspace mechanics
 

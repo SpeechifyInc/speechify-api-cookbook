@@ -15,23 +15,23 @@ Both SDKs read `SPEECHIFY_API_KEY` from the environment. The deprecated
 
 ## Synthesize speech
 
-**TypeScript**
+**TypeScript** (`@speechify/api` v2)
 
 ```ts
 import { SpeechifyClient } from "@speechify/api";
 
-const client = new SpeechifyClient({ token: process.env.SPEECHIFY_API_KEY! });
+const client = new SpeechifyClient({ apiKey: process.env.SPEECHIFY_API_KEY! });
 
-const response = await client.tts.audio.speech({
+const response = await client.audio.speech({
   input: "Hello! This is the Speechify text-to-speech API.",
-  voiceId: "george",
-  audioFormat: "mp3",
+  voice_id: "george",
+  audio_format: "mp3",
   model: "simba-english",
 });
 
-// response.audioData is base64-encoded audio.
+// response.audio_data is base64-encoded audio.
 import fs from "node:fs";
-fs.writeFileSync("output.mp3", Buffer.from(response.audioData, "base64"));
+fs.writeFileSync("output.mp3", Buffer.from(response.audio_data, "base64"));
 ```
 
 **Python**
@@ -53,19 +53,19 @@ with open("output.mp3", "wb") as f:
     f.write(base64.b64decode(response.audio_data))
 ```
 
-> Field casing differs by SDK: TS uses `voiceId`/`audioFormat`/`audioData`; Python uses
-> `voice_id`/`audio_format`/`audio_data`. `response.audioData` is base64 — decode before
-> writing bytes. If you observe a different response shape from the installed SDK version,
-> trust the SDK and update recipes + this note.
+> Both SDKs now use snake_case for request and response fields (`voice_id`,
+> `audio_format`, `audio_data`, `speech_marks`). `response.audio_data` is base64 — decode
+> before writing bytes. If you observe a different response shape from the installed SDK
+> version, trust the SDK and update recipes + this note.
 
 ## Parameters
 
-| Param                          | Notes                                                                              |
-| ------------------------------ | ---------------------------------------------------------------------------------- |
-| `input`                        | Text (or SSML) to synthesize. Up to ~20,000 characters per request.                |
-| `voiceId` / `voice_id`         | A voice identifier, e.g. `george`.                                                 |
-| `model`                        | `simba-english` (English, lowest latency) or `simba-multilingual` (30+ languages). |
-| `audioFormat` / `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                      |
+| Param          | Notes                                                                              |
+| -------------- | ---------------------------------------------------------------------------------- |
+| `input`        | Text (or SSML) to synthesize. Up to ~20,000 characters per request.                |
+| `voice_id`     | A voice identifier, e.g. `george`.                                                 |
+| `model`        | `simba-english` (English, lowest latency) or `simba-multilingual` (30+ languages). |
+| `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                      |
 
 ## Capabilities to build recipes around
 

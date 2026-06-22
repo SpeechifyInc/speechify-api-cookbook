@@ -3,11 +3,11 @@
 ## Layout of a TS recipe
 
 ```
-recipes/<product>/typescript/<recipe>/
+recipes/<product>/typescript/{sdk,native}/<recipe>/
 ├── README.md
 ├── .env.example
 ├── package.json
-├── tsconfig.json        # extends ../../../../tsconfig.base.json
+├── tsconfig.json        # extends ../../../../../tsconfig.base.json
 └── src/
     └── index.ts
 ```
@@ -45,7 +45,7 @@ Each recipe extends the shared base:
 
 ```json
 {
-  "extends": "../../../../tsconfig.base.json",
+  "extends": "../../../../../tsconfig.base.json",
   "include": ["src"]
 }
 ```
@@ -64,7 +64,7 @@ if (!process.env.SPEECHIFY_API_KEY) {
   throw new Error("Set SPEECHIFY_API_KEY (see .env.example).");
 }
 
-const client = new SpeechifyClient({ token: process.env.SPEECHIFY_API_KEY });
+const client = new SpeechifyClient({ apiKey: process.env.SPEECHIFY_API_KEY });
 ```
 
 ## Style

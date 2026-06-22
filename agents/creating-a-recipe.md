@@ -5,13 +5,17 @@ The canonical checklist for adding a new recipe. Follow it top to bottom.
 ## 1. Pick a location
 
 ```
-recipes/<product>/<language>/<recipe-name>/
+recipes/<product>/<language>/{sdk,native}/<recipe-name>/
 ```
 
-- `product`: `text-to-speech` or `voice-agents` (create a new one only for a genuinely new
-  Speechify product).
-- `language`: `typescript` or `python`.
+- `product`: `audio` (Text-to-Speech today; the audio platform will expand) or `agents`
+  (Voice Agents). Create a new top-level product only for a genuinely new Speechify
+  product.
+- `language`: `typescript`, `python`, or `bash` (`bash` is `native`-only).
+- `sdk` or `native`: SDK-based recipes use an official Speechify SDK; native recipes call
+  the REST API directly (`fetch`, `requests`, `curl`).
 - `recipe-name`: kebab-case, describes the task (`streaming-to-file`, not `tts-stream-2`).
+  Do not add `-rest` / `-sdk` suffixes — the parent folder already encodes the flavor.
 
 ## 2. Copy the template
 

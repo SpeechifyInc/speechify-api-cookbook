@@ -1,9 +1,0 @@
-[project]
-name = "voice-agents-python-conversation-transcript-rest"
-version = "0.1.0"
-description = "Start a conversation and read its transcript via the Speechify Voice Agents REST API (no SDK)."
-requires-python = ">=3.9"
-dependencies = [
-    "requests>=2.31.0",
-    "python-dotenv>=1.0.0",
-]

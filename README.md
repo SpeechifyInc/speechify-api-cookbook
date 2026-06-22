@@ -17,57 +17,58 @@ key, and run it.
 The fastest path:
 
 ```bash
-cd recipes/text-to-speech/typescript/quickstart
+cd recipes/audio/typescript/sdk/quickstart
 cp .env.example .env        # paste your SPEECHIFY_API_KEY
 pnpm install && pnpm start  # writes output.mp3
 ```
 
 ## Recipes
 
-### Text-to-Speech
+Recipes are organized by **product → language → flavor → recipe**:
 
-| Recipe                                                                 | Language   | Description                                               |
-| ---------------------------------------------------------------------- | ---------- | --------------------------------------------------------- |
-| [quickstart](./recipes/text-to-speech/typescript/quickstart)           | TypeScript | Synthesize speech to an MP3 file (SDK).                   |
-| [quickstart](./recipes/text-to-speech/python/quickstart)               | Python     | Synthesize speech to an MP3 file (SDK).                   |
-| [quickstart-rest](./recipes/text-to-speech/typescript/quickstart-rest) | TypeScript | Same, calling the REST API directly (no SDK, `fetch`).    |
-| [quickstart-rest](./recipes/text-to-speech/python/quickstart-rest)     | Python     | Same, calling the REST API directly (no SDK, `requests`). |
-| [streaming](./recipes/text-to-speech/typescript/streaming)             | TypeScript | Stream audio to disk as it is generated.                  |
-| [streaming](./recipes/text-to-speech/python/streaming)                 | Python     | Stream audio to disk as it is generated.                  |
-| [ssml-emotion](./recipes/text-to-speech/typescript/ssml-emotion)       | TypeScript | Control emotion, pitch, rate, pauses & emphasis via SSML. |
-| [ssml-emotion](./recipes/text-to-speech/python/ssml-emotion)           | Python     | Control emotion, pitch, rate, pauses & emphasis via SSML. |
-| [speech-marks](./recipes/text-to-speech/typescript/speech-marks)       | TypeScript | Word-level timestamps → WebVTT captions.                  |
-| [speech-marks](./recipes/text-to-speech/python/speech-marks)           | Python     | Word-level timestamps → WebVTT captions.                  |
-| [voice-cloning](./recipes/text-to-speech/typescript/voice-cloning)     | TypeScript | Clone a voice from a sample, synthesize, then delete it.  |
-| [voice-cloning](./recipes/text-to-speech/python/voice-cloning)         | Python     | Clone a voice from a sample, synthesize, then delete it.  |
+```
+recipes/<product>/<language>/{sdk,native}/<recipe>/
+```
+
+- **SDK** — uses an official Speechify SDK for that language.
+- **Native** — calls the REST API directly (no SDK), e.g. `fetch` in TS, `requests` in Python, `curl` in Bash.
+
+### Audio (Text-to-Speech)
+
+| Recipe                                                        | Language   | Flavor | Description                                               |
+| ------------------------------------------------------------- | ---------- | ------ | --------------------------------------------------------- |
+| [quickstart](./recipes/audio/typescript/sdk/quickstart)       | TypeScript | SDK    | Synthesize speech to an MP3 file.                         |
+| [quickstart](./recipes/audio/typescript/native/quickstart)    | TypeScript | Native | Same, calling the REST API directly with `fetch`.         |
+| [streaming](./recipes/audio/typescript/sdk/streaming)         | TypeScript | SDK    | Stream audio to disk as it is generated.                  |
+| [ssml-emotion](./recipes/audio/typescript/sdk/ssml-emotion)   | TypeScript | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
+| [speech-marks](./recipes/audio/typescript/sdk/speech-marks)   | TypeScript | SDK    | Word-level timestamps → WebVTT captions.                  |
+| [voice-cloning](./recipes/audio/typescript/sdk/voice-cloning) | TypeScript | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
+| [quickstart](./recipes/audio/python/sdk/quickstart)           | Python     | SDK    | Synthesize speech to an MP3 file.                         |
+| [quickstart](./recipes/audio/python/native/quickstart)        | Python     | Native | Same, calling the REST API directly with `requests`.      |
+| [streaming](./recipes/audio/python/sdk/streaming)             | Python     | SDK    | Stream audio to disk as it is generated.                  |
+| [ssml-emotion](./recipes/audio/python/sdk/ssml-emotion)       | Python     | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
+| [speech-marks](./recipes/audio/python/sdk/speech-marks)       | Python     | SDK    | Word-level timestamps → WebVTT captions.                  |
+| [voice-cloning](./recipes/audio/python/sdk/voice-cloning)     | Python     | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
 
 ### Voice Agents
 
-Voice Agents has no SDK yet, so every recipe is **native REST** (`-rest` suffix). The bare
-names are reserved for SDK versions once an SDK adds Voice Agents support.
-
-| Recipe                                                                                         | Language   | Description                                           |
-| ---------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------- |
-| [quickstart-rest](./recipes/voice-agents/typescript/quickstart-rest)                           | TypeScript | Create an agent and open a live conversation session. |
-| [quickstart-rest](./recipes/voice-agents/python/quickstart-rest)                               | Python     | Create an agent and open a live conversation session. |
-| [manage-agents-rest](./recipes/voice-agents/typescript/manage-agents-rest)                     | TypeScript | Agent CRUD: create, list, get, update, delete.        |
-| [manage-agents-rest](./recipes/voice-agents/python/manage-agents-rest)                         | Python     | Agent CRUD: create, list, get, update, delete.        |
-| [conversation-transcript-rest](./recipes/voice-agents/typescript/conversation-transcript-rest) | TypeScript | Start a conversation and read its transcript.         |
-| [conversation-transcript-rest](./recipes/voice-agents/python/conversation-transcript-rest)     | Python     | Start a conversation and read its transcript.         |
-
-See [`COVERAGE.md`](./COVERAGE.md) for the full product × language matrix and what's planned.
+The `recipes/agents/` namespace is reserved for Voice Agents recipes. Coming soon — see
+[`COVERAGE.md`](./COVERAGE.md) for what's planned.
 
 ## Repository layout
 
-Recipes are organized **by product → language → recipe**:
+```
+recipes/<product>/<language>/{sdk,native}/<recipe>/
+```
 
-```
-recipes/<product>/<language>/<recipe-name>/
-```
+- `<product>` — `audio` (Text-to-Speech today; the audio platform will expand) or `agents` (Voice Agents).
+- `<language>` — `typescript`, `python`, or `bash` (curl-style native examples).
+- `sdk` — uses the official Speechify SDK for that language.
+- `native` — calls the REST API directly (no SDK).
 
 This is a **pnpm workspace** monorepo. TypeScript/JavaScript recipes are workspace members
 (shared dependency versions via the pnpm `catalog:`); Python recipes use **uv** and are
-managed per-recipe. Rust is planned but not yet enabled.
+managed per-recipe.
 
 | Path         | What                                                                      |
 | ------------ | ------------------------------------------------------------------------- |

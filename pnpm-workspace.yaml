@@ -2,14 +2,14 @@
 # JavaScript/TypeScript recipes live under recipes/<product>/typescript/<recipe>.
 # Python recipes are managed independently with uv (see agents/python-recipes.md).
 packages:
-  - "recipes/*/typescript/*"
+  - "recipes/*/typescript/*/*"
 # templates/ are copy-paste scaffolds, not workspace members — their `catalog:`
 # refs and tsconfig paths resolve once a copy lands under recipes/.
 
 # Single source of truth for shared dependency versions.
 # Recipes reference these with "catalog:" instead of pinning their own.
 catalog:
-  "@speechify/api": ^1.0.1
+  "@speechify/api": 2.0.0
   tsx: ^4.19.2
   typescript: ^5.7.2
   "@types/node": ^22.10.2
