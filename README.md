@@ -1,8 +1,7 @@
 # Speechify Cookbook
 
 Focused, runnable recipes for the Speechify
-[Text-to-Speech](https://docs.speechify.ai/tts) and
-[Voice Agents](https://docs.speechify.ai/voice-agents) APIs.
+[Text-to-Speech](https://docs.speechify.ai/tts) API.
 
 Each recipe is small, self-contained, and does one thing — copy a folder, add your API
 key, and run it.
@@ -35,34 +34,26 @@ recipes/<product>/<language>/{sdk,native}/<recipe>/
 
 ### Audio (Text-to-Speech)
 
-| Recipe                                                        | Language   | Flavor | Description                                               |
-| ------------------------------------------------------------- | ---------- | ------ | --------------------------------------------------------- |
-| [quickstart](./recipes/audio/typescript/sdk/quickstart)       | TypeScript | SDK    | Synthesize speech to an MP3 file.                         |
-| [quickstart](./recipes/audio/typescript/native/quickstart)    | TypeScript | Native | Same, calling the REST API directly with `fetch`.         |
-| [streaming](./recipes/audio/typescript/sdk/streaming)         | TypeScript | SDK    | Stream audio to disk as it is generated.                  |
-| [ssml-emotion](./recipes/audio/typescript/sdk/ssml-emotion)   | TypeScript | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
-| [speech-marks](./recipes/audio/typescript/sdk/speech-marks)   | TypeScript | SDK    | Word-level timestamps → WebVTT captions.                  |
-| [voice-cloning](./recipes/audio/typescript/sdk/voice-cloning) | TypeScript | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
-| [quickstart](./recipes/audio/python/sdk/quickstart)           | Python     | SDK    | Synthesize speech to an MP3 file.                         |
-| [quickstart](./recipes/audio/python/native/quickstart)        | Python     | Native | Same, calling the REST API directly with `requests`.      |
-| [streaming](./recipes/audio/python/sdk/streaming)             | Python     | SDK    | Stream audio to disk as it is generated.                  |
-| [ssml-emotion](./recipes/audio/python/sdk/ssml-emotion)       | Python     | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
-| [speech-marks](./recipes/audio/python/sdk/speech-marks)       | Python     | SDK    | Word-level timestamps → WebVTT captions.                  |
-| [voice-cloning](./recipes/audio/python/sdk/voice-cloning)     | Python     | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
+| Recipe                                                        | Flavor | Description                                               |
+| ------------------------------------------------------------- | ------ | --------------------------------------------------------- |
+| [quickstart](./recipes/audio/typescript/sdk/quickstart)       | SDK    | Synthesize speech to an MP3 file.                         |
+| [quickstart](./recipes/audio/typescript/native/quickstart)    | Native | Same, calling the REST API directly with `fetch`.         |
+| [streaming](./recipes/audio/typescript/sdk/streaming)         | SDK    | Stream audio to disk as it is generated.                  |
+| [ssml-emotion](./recipes/audio/typescript/sdk/ssml-emotion)   | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
+| [speech-marks](./recipes/audio/typescript/sdk/speech-marks)   | SDK    | Word-level timestamps → WebVTT captions.                  |
+| [voice-cloning](./recipes/audio/typescript/sdk/voice-cloning) | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
 
-### Voice Agents
-
-The `recipes/agents/` namespace is reserved for Voice Agents recipes. Coming soon — see
-[`COVERAGE.md`](./COVERAGE.md) for what's planned.
+All recipes above are TypeScript. The `audio/python/` and `audio/bash/` namespaces are
+reserved for when those land — see [`COVERAGE.md`](./COVERAGE.md).
 
 ## Repository layout
 
 ```
-recipes/<product>/<language>/{sdk,native}/<recipe>/
+recipes/audio/<language>/{sdk,native}/<recipe>/
 ```
 
-- `<product>` — `audio` (Text-to-Speech today; the audio platform will expand) or `agents` (Voice Agents).
-- `<language>` — `typescript`, `python`, or `bash` (curl-style native examples).
+- `audio/` — Text-to-Speech today; the audio platform will expand.
+- `<language>` — `typescript` (active), `python` and `bash` (reserved).
 - `sdk` — uses the official Speechify SDK for that language.
 - `native` — calls the REST API directly (no SDK).
 

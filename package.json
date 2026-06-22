@@ -2,7 +2,7 @@
   "name": "speechify-cookbook",
   "version": "0.1.0",
   "private": true,
-  "description": "Recipes and examples for the Speechify Text-to-Speech and Voice Agents APIs.",
+  "description": "Recipes and examples for the Speechify Text-to-Speech API.",
   "homepage": "https://docs.speechify.ai",
   "license": "MIT",
   "packageManager": "pnpm@10.9.0",

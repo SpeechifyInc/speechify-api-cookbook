@@ -1,9 +1,0 @@
-[project]
-name = "tts-python-streaming"
-version = "0.1.0"
-description = "Stream synthesized audio to a file as it is generated with the Speechify TTS API."
-requires-python = ">=3.9"
-dependencies = [
-    "speechify-api>=1.0.0",
-    "python-dotenv>=1.0.0",
-]

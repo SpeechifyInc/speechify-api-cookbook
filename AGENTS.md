@@ -2,8 +2,7 @@
 
 Guidance for AI coding agents (and humans) working in the **Speechify Cookbook** — a
 collection of focused, runnable recipes for the Speechify
-[Text-to-Speech](https://docs.speechify.ai/tts) and
-[Voice Agents](https://docs.speechify.ai/voice-agents) APIs.
+[Text-to-Speech](https://docs.speechify.ai/tts) API.
 
 ## How to use this file
 
@@ -18,7 +17,6 @@ below for the task at hand instead of loading everything up front.
 | Writing a TypeScript/JavaScript recipe                        | [`agents/typescript-recipes.md`](./agents/typescript-recipes.md) |
 | Writing a Python recipe                                       | [`agents/python-recipes.md`](./agents/python-recipes.md)         |
 | Calling the Speechify TTS API or SDKs                         | [`agents/speechify-tts.md`](./agents/speechify-tts.md)           |
-| Building against Voice Agents (REST + WebSocket)              | [`agents/voice-agents.md`](./agents/voice-agents.md)             |
 | Updating docs, the README index, or coverage tracking         | [`agents/maintenance.md`](./agents/maintenance.md)               |
 
 > **Convention:** when you add a new instruction file under `agents/`, add a row to the

@@ -1,9 +1,0 @@
-[project]
-name = "tts-python-quickstart"
-version = "0.1.0"
-description = "Synthesize speech to an MP3 file with the Speechify TTS API."
-requires-python = ">=3.9"
-dependencies = [
-    "speechify-api>=1.0.0",
-    "python-dotenv>=1.0.0",
-]

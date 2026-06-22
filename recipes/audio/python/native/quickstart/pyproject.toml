@@ -1,9 +1,0 @@
-[project]
-name = "tts-python-quickstart-rest"
-version = "0.1.0"
-description = "Synthesize speech with the Speechify TTS REST API directly (no SDK), using requests."
-requires-python = ">=3.9"
-dependencies = [
-    "requests>=2.31.0",
-    "python-dotenv>=1.0.0",
-]

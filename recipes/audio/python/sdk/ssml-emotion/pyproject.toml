@@ -1,9 +1,0 @@
-[project]
-name = "tts-python-ssml-emotion"
-version = "0.1.0"
-description = "Control emotion, pitch, rate, pauses, and emphasis with SSML using the Speechify TTS API."
-requires-python = ">=3.9"
-dependencies = [
-    "speechify-api>=1.0.0",
-    "python-dotenv>=1.0.0",
-]

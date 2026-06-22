@@ -5,7 +5,7 @@ Python recipes use **uv** and are managed independently of the pnpm workspace.
 ## Layout of a Python recipe
 
 ```
-recipes/<product>/python/<recipe>/
+recipes/audio/python/{sdk,native}/<recipe>/
 ├── README.md
 ├── .env.example
 ├── pyproject.toml
@@ -17,7 +17,7 @@ recipes/<product>/python/<recipe>/
 
 ```toml
 [project]
-name = "tts-python-quickstart"
+name = "audio-python-quickstart"
 version = "0.1.0"
 requires-python = ">=3.9"
 dependencies = [

@@ -21,20 +21,16 @@ speechify-cookbook/
 │   ├── typescript/recipe/
 │   └── python/recipe/
 └── recipes/
-    ├── audio/                 # Text-to-Speech today; will expand
-    │   ├── typescript/
-    │   │   ├── sdk/quickstart/
-    │   │   └── native/quickstart/
-    │   ├── python/
-    │   │   ├── sdk/quickstart/
-    │   │   └── native/quickstart/
-    │   └── bash/
-    │       ├── sdk/.gitkeep        # no bash SDK; placeholder
-    │       └── native/.gitkeep     # curl recipes go here
-    └── agents/                # Voice Agents (reserved; recipes coming back)
-        ├── typescript/{sdk,native}/.gitkeep
-        ├── python/{sdk,native}/.gitkeep
-        └── bash/{sdk,native}/.gitkeep
+    └── audio/                 # Text-to-Speech today; will expand
+        ├── typescript/
+        │   ├── sdk/quickstart/
+        │   └── native/quickstart/
+        ├── python/
+        │   ├── sdk/.gitkeep        # reserved; recipes coming back
+        │   └── native/.gitkeep
+        └── bash/
+            ├── sdk/.gitkeep        # no bash SDK; placeholder
+            └── native/.gitkeep     # curl recipes go here
 ```
 
 ## Why this shape
@@ -48,10 +44,9 @@ speechify-cookbook/
 
 ## Products
 
-| Folder    | What                                        | Status                                      |
-| --------- | ------------------------------------------- | ------------------------------------------- |
-| `audio/`  | Text-to-Speech, plus future audio products. | Active. TypeScript on v2 SDK, Python on v1. |
-| `agents/` | Voice Agents.                               | Namespace reserved; recipes coming back.    |
+| Folder   | What                                        | Status                             |
+| -------- | ------------------------------------------- | ---------------------------------- |
+| `audio/` | Text-to-Speech, plus future audio products. | Active. TypeScript on v2 SDK only. |
 
 ## Languages and tooling
 
@@ -63,7 +58,7 @@ speechify-cookbook/
 
 ## Naming rules
 
-- Folders are **kebab-case**: `audio`, `agents`, `streaming-to-file`.
+- Folders are **kebab-case**: `audio`, `streaming-to-file`.
 - Language folders are exactly `typescript`, `python`, or `bash`.
 - Flavor folders are exactly `sdk` or `native`.
 - Recipe names describe the task, not the API method: `quickstart`, `streaming-to-file`,

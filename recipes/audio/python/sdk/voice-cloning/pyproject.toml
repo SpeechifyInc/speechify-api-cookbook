@@ -1,9 +1,0 @@
-[project]
-name = "tts-python-voice-cloning"
-version = "0.1.0"
-description = "Clone a voice from an audio sample, synthesize with it, then delete it (Speechify TTS API)."
-requires-python = ">=3.9"
-dependencies = [
-    "speechify-api>=1.0.0",
-    "python-dotenv>=1.0.0",
-]
