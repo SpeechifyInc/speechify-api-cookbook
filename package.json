@@ -12,7 +12,7 @@
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yaml,yml}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,yaml,yml}\"",
-    "typecheck": "pnpm -r --if-present exec tsc --noEmit"
+    "typecheck": "pnpm -r run --if-present typecheck"
   },
   "devDependencies": {
     "prettier": "^3.4.2"
