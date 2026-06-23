@@ -26,8 +26,8 @@ speechify-cookbook/
         │   ├── sdk/quickstart/
         │   └── native/quickstart/
         ├── python/
-        │   ├── sdk/.gitkeep        # reserved; recipes coming back
-        │   └── native/.gitkeep
+        │   ├── sdk/quickstart/
+        │   └── native/quickstart/
         └── bash/
             ├── sdk/.gitkeep        # no bash SDK; placeholder
             └── native/.gitkeep     # curl recipes go here
@@ -44,9 +44,9 @@ speechify-cookbook/
 
 ## Products
 
-| Folder   | What                                        | Status                             |
-| -------- | ------------------------------------------- | ---------------------------------- |
-| `audio/` | Text-to-Speech, plus future audio products. | Active. TypeScript on v2 SDK only. |
+| Folder   | What                                        | Status                                  |
+| -------- | ------------------------------------------- | --------------------------------------- |
+| `audio/` | Text-to-Speech, plus future audio products. | Active. TypeScript + Python on v2 SDKs. |
 
 ## Languages and tooling
 

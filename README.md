@@ -43,8 +43,19 @@ recipes/<product>/<language>/{sdk,native}/<recipe>/
 | [speech-marks](./recipes/audio/typescript/sdk/speech-marks)   | SDK    | Word-level timestamps → WebVTT captions.                  |
 | [voice-cloning](./recipes/audio/typescript/sdk/voice-cloning) | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
 
-All recipes above are TypeScript. The `audio/python/` and `audio/bash/` namespaces are
-reserved for when those land — see [`COVERAGE.md`](./COVERAGE.md).
+### Audio (Python)
+
+| Recipe                                                    | Flavor | Description                                               |
+| --------------------------------------------------------- | ------ | --------------------------------------------------------- |
+| [quickstart](./recipes/audio/python/sdk/quickstart)       | SDK    | Synthesize speech to an MP3 file.                         |
+| [quickstart](./recipes/audio/python/native/quickstart)    | Native | Same, calling the REST API directly with `requests`.      |
+| [streaming](./recipes/audio/python/sdk/streaming)         | SDK    | Stream audio to disk as it is generated.                  |
+| [ssml-emotion](./recipes/audio/python/sdk/ssml-emotion)   | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
+| [speech-marks](./recipes/audio/python/sdk/speech-marks)   | SDK    | Word-level timestamps → WebVTT captions.                  |
+| [voice-cloning](./recipes/audio/python/sdk/voice-cloning) | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
+
+The `audio/bash/` namespace is reserved for curl-style recipes — see
+[`COVERAGE.md`](./COVERAGE.md).
 
 ## Repository layout
 

@@ -15,11 +15,10 @@ Each cell points at `recipes/audio/<language>/<flavor>/<recipe>/`.
 
 |                                        | TypeScript<br>SDK | TypeScript<br>Native | Python<br>SDK | Python<br>Native | Bash<br>Native |
 | -------------------------------------- | :---------------: | :------------------: | :-----------: | :--------------: | :------------: |
-| quickstart (synthesize to file)        |        ✅         |          ✅          |      ⬜       |        ⬜        |       ⬜       |
-| streaming                              |        ✅         |          ⬜          |      ⬜       |        ⬜        |       ⬜       |
-| SSML controls (pitch / rate / emotion) |        ✅         |          ⬜          |      ⬜       |        ⬜        |       ⬜       |
-| word-level timestamps (caption sync)   |        ✅         |          ⬜          |      ⬜       |        ⬜        |       ⬜       |
-| voice cloning                          |        ✅         |          ⬜          |      ⬜       |        ⬜        |       ⬜       |
+| quickstart (synthesize to file)        |        ✅         |          ✅          |      ✅       |        ✅        |       ⬜       |
+| streaming                              |        ✅         |          ⬜          |      ✅       |        ⬜        |       ⬜       |
+| SSML controls (pitch / rate / emotion) |        ✅         |          ⬜          |      ✅       |        ⬜        |       ⬜       |
+| word-level timestamps (caption sync)   |        ✅         |          ⬜          |      ✅       |        ⬜        |       ⬜       |
+| voice cloning                          |        ✅         |          ⬜          |      ✅       |        ⬜        |       ⬜       |
 
-> Python parity is deferred until `speechify-api` ships a v2 on PyPI; bash (curl) recipes
-> are planned.
+> Bash (curl) recipes are planned.

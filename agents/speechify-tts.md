@@ -34,14 +34,14 @@ import fs from "node:fs";
 fs.writeFileSync("output.mp3", Buffer.from(response.audio_data, "base64"));
 ```
 
-**Python**
+**Python** (`speechify-api` v2)
 
 ```python
 from speechify import Speechify
 
-client = Speechify(token=token)
+client = Speechify(api_key=api_key)
 
-response = client.tts.audio.speech(
+response = client.audio.speech(
     input="Hello! This is the Speechify text-to-speech API.",
     voice_id="george",
     audio_format="mp3",

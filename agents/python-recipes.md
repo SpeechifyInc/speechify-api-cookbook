@@ -19,9 +19,9 @@ recipes/audio/python/{sdk,native}/<recipe>/
 [project]
 name = "audio-python-quickstart"
 version = "0.1.0"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
-    "speechify-api>=1.0.0",
+    "speechify-api>=2.0.0",
     "python-dotenv>=1.0.0",
 ]
 ```
@@ -43,18 +43,18 @@ from speechify import Speechify
 
 load_dotenv()
 
-token = os.environ.get("SPEECHIFY_API_KEY")
-if not token:
+api_key = os.environ.get("SPEECHIFY_API_KEY")
+if not api_key:
     raise SystemExit("Set SPEECHIFY_API_KEY (see .env.example).")
 
-client = Speechify(token=token)
+client = Speechify(api_key=api_key)
 ```
 
 An async variant is available as `AsyncSpeechify` with identical method signatures.
 
 ## Style
 
-- Target Python 3.9+ and keep `main.py` a readable script with a `main()` entry guarded by
+- Target Python 3.10+ and keep `main.py` a readable script with a `main()` entry guarded by
   `if __name__ == "__main__":`.
 - Prefer the standard library plus the SDK; add dependencies only when they earn their
   place.
