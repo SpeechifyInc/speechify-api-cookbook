@@ -82,7 +82,7 @@ managed per-recipe.
 ## Tooling
 
 - **Node 20+** and **pnpm** for JavaScript/TypeScript recipes.
-- **Python 3.9+** and **[uv](https://docs.astral.sh/uv/)** for Python recipes.
+- **Python 3.10+** and **[uv](https://docs.astral.sh/uv/)** for Python recipes.
 - `pnpm install` at the root sets up all JS recipes.
 - `pnpm format` formats the repo with Prettier.
 

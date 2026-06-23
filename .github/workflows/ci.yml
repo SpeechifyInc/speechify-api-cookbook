@@ -78,7 +78,9 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          # 3.10 is the minimum required by speechify-api v2 — test the floor so any
+          # 3.11+-only syntax breaks here, not in a user's 3.10 environment.
+          python-version: "3.10"
 
       - name: Sync ${{ matrix.recipe }}
         run: uv sync

@@ -45,7 +45,7 @@ Keep recipe READMEs short and identical in shape:
 ## Prerequisites
 
 - A Speechify API key — https://console.speechify.ai/api-keys
-- <Node 20+ / Python 3.9+>
+- <Node 20+ / Python 3.10+>
 
 ## Setup
 

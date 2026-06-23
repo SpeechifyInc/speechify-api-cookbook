@@ -1,8 +1,8 @@
 [project]
 name = "change-me-python-recipe"
 version = "0.1.0"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
-    "speechify-api>=1.0.0",
+    "speechify-api>=2.0.0",
     "python-dotenv>=1.0.0",
 ]
