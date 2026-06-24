@@ -10,9 +10,9 @@ recipes/audio/<language>/{sdk,native}/<recipe-name>/
 
 - `audio`: Text-to-Speech today; the audio platform will expand. Create a new top-level
   product only for a genuinely new Speechify product.
-- `language`: `typescript` (active). `python` and `bash` are reserved.
+- `language`: `typescript`, `python`, or `bash` (curl-only, `native` flavor).
 - `sdk` or `native`: SDK-based recipes use an official Speechify SDK; native recipes call
-  the REST API directly (`fetch`, `requests`, `curl`).
+  the REST API directly (`fetch`, `requests`, `curl`). Bash recipes are always `native`.
 - `recipe-name`: kebab-case, describes the task (`streaming-to-file`, not `tts-stream-2`).
   Do not add `-rest` / `-sdk` suffixes — the parent folder already encodes the flavor.
 
@@ -20,6 +20,8 @@ recipes/audio/<language>/{sdk,native}/<recipe-name>/
 
 - TypeScript → copy [`templates/typescript/recipe`](../templates/typescript/recipe).
 - Python → copy [`templates/python/recipe`](../templates/python/recipe).
+- Bash → no template; copy a sibling under `recipes/audio/bash/native/`. Each recipe is a
+  single executable `.sh` plus `README.md` and `.env.example`.
 
 Then read the language guide:
 [`typescript-recipes.md`](./typescript-recipes.md) or
@@ -29,7 +31,8 @@ Then read the language guide:
 
 - `README.md` — follow the **fixed template** below.
 - `.env.example` — only the keys it needs (almost always just `SPEECHIFY_API_KEY=`).
-- A manifest — `package.json` (TS) or `pyproject.toml` (Python).
+- A manifest — `package.json` (TS) or `pyproject.toml` (Python). Bash recipes have no
+  manifest; the `.sh` script is the manifest.
 - Source that runs end to end and produces a visible result (a saved file, printed output,
   or a live session).
 

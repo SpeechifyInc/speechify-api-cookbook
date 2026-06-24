@@ -32,30 +32,45 @@ recipes/<product>/<language>/{sdk,native}/<recipe>/
 - **SDK** — uses an official Speechify SDK for that language.
 - **Native** — calls the REST API directly (no SDK), e.g. `fetch` in TS, `requests` in Python, `curl` in Bash.
 
-### Audio (Text-to-Speech)
+### Audio — TypeScript
 
-| Recipe                                                        | Flavor | Description                                               |
-| ------------------------------------------------------------- | ------ | --------------------------------------------------------- |
-| [quickstart](./recipes/audio/typescript/sdk/quickstart)       | SDK    | Synthesize speech to an MP3 file.                         |
-| [quickstart](./recipes/audio/typescript/native/quickstart)    | Native | Same, calling the REST API directly with `fetch`.         |
-| [streaming](./recipes/audio/typescript/sdk/streaming)         | SDK    | Stream audio to disk as it is generated.                  |
-| [ssml-emotion](./recipes/audio/typescript/sdk/ssml-emotion)   | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
-| [speech-marks](./recipes/audio/typescript/sdk/speech-marks)   | SDK    | Word-level timestamps → WebVTT captions.                  |
-| [voice-cloning](./recipes/audio/typescript/sdk/voice-cloning) | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
+| Recipe                                                           | Flavor | Description                                               |
+| ---------------------------------------------------------------- | ------ | --------------------------------------------------------- |
+| [quickstart](./recipes/audio/typescript/sdk/quickstart)          | SDK    | Synthesize speech to an MP3 file.                         |
+| [quickstart](./recipes/audio/typescript/native/quickstart)       | Native | Same, calling the REST API directly with `fetch`.         |
+| [streaming](./recipes/audio/typescript/sdk/streaming)            | SDK    | Stream audio to disk as it is generated.                  |
+| [streaming](./recipes/audio/typescript/native/streaming)         | Native | Streaming via raw `fetch` + `pipeline`.                   |
+| [ssml-emotion](./recipes/audio/typescript/sdk/ssml-emotion)      | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
+| [ssml-emotion](./recipes/audio/typescript/native/ssml-emotion)   | Native | Same SSML controls, via raw `fetch`.                      |
+| [speech-marks](./recipes/audio/typescript/sdk/speech-marks)      | SDK    | Word-level timestamps → WebVTT captions.                  |
+| [speech-marks](./recipes/audio/typescript/native/speech-marks)   | Native | Same captions, via raw `fetch`.                           |
+| [voice-cloning](./recipes/audio/typescript/sdk/voice-cloning)    | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
+| [voice-cloning](./recipes/audio/typescript/native/voice-cloning) | Native | Same lifecycle, via raw `fetch` + multipart `FormData`.   |
 
-### Audio (Python)
+### Audio — Python
 
-| Recipe                                                    | Flavor | Description                                               |
-| --------------------------------------------------------- | ------ | --------------------------------------------------------- |
-| [quickstart](./recipes/audio/python/sdk/quickstart)       | SDK    | Synthesize speech to an MP3 file.                         |
-| [quickstart](./recipes/audio/python/native/quickstart)    | Native | Same, calling the REST API directly with `requests`.      |
-| [streaming](./recipes/audio/python/sdk/streaming)         | SDK    | Stream audio to disk as it is generated.                  |
-| [ssml-emotion](./recipes/audio/python/sdk/ssml-emotion)   | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
-| [speech-marks](./recipes/audio/python/sdk/speech-marks)   | SDK    | Word-level timestamps → WebVTT captions.                  |
-| [voice-cloning](./recipes/audio/python/sdk/voice-cloning) | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
+| Recipe                                                       | Flavor | Description                                               |
+| ------------------------------------------------------------ | ------ | --------------------------------------------------------- |
+| [quickstart](./recipes/audio/python/sdk/quickstart)          | SDK    | Synthesize speech to an MP3 file.                         |
+| [quickstart](./recipes/audio/python/native/quickstart)       | Native | Same, calling the REST API directly with `requests`.      |
+| [streaming](./recipes/audio/python/sdk/streaming)            | SDK    | Stream audio to disk as it is generated.                  |
+| [streaming](./recipes/audio/python/native/streaming)         | Native | Streaming via raw `requests` with `stream=True`.          |
+| [ssml-emotion](./recipes/audio/python/sdk/ssml-emotion)      | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML. |
+| [ssml-emotion](./recipes/audio/python/native/ssml-emotion)   | Native | Same SSML controls, via raw `requests`.                   |
+| [speech-marks](./recipes/audio/python/sdk/speech-marks)      | SDK    | Word-level timestamps → WebVTT captions.                  |
+| [speech-marks](./recipes/audio/python/native/speech-marks)   | Native | Same captions, via raw `requests`.                        |
+| [voice-cloning](./recipes/audio/python/sdk/voice-cloning)    | SDK    | Clone a voice from a sample, synthesize, then delete it.  |
+| [voice-cloning](./recipes/audio/python/native/voice-cloning) | Native | Same lifecycle, via raw `requests` + multipart.           |
 
-The `audio/bash/` namespace is reserved for curl-style recipes — see
-[`COVERAGE.md`](./COVERAGE.md).
+### Audio — Bash (curl)
+
+| Recipe                                                     | Flavor | Description                                                       |
+| ---------------------------------------------------------- | ------ | ----------------------------------------------------------------- |
+| [quickstart](./recipes/audio/bash/native/quickstart)       | Native | Synthesize speech to an MP3 file with `curl` + `jq`.              |
+| [streaming](./recipes/audio/bash/native/streaming)         | Native | Stream raw audio bytes straight to disk with `curl --no-buffer`.  |
+| [ssml-emotion](./recipes/audio/bash/native/ssml-emotion)   | Native | SSML emotion/prosody via a single `curl` call (`jq` builds JSON). |
+| [speech-marks](./recipes/audio/bash/native/speech-marks)   | Native | Speech marks → WebVTT captions, formatted entirely in `jq`.       |
+| [voice-cloning](./recipes/audio/bash/native/voice-cloning) | Native | Multipart clone → speech → delete, with an `EXIT` trap cleanup.   |
 
 ## Repository layout
 
@@ -64,7 +79,7 @@ recipes/audio/<language>/{sdk,native}/<recipe>/
 ```
 
 - `audio/` — Text-to-Speech today; the audio platform will expand.
-- `<language>` — `typescript` (active), `python` and `bash` (reserved).
+- `<language>` — `typescript`, `python`, and `bash` (curl-only, native flavor).
 - `sdk` — uses the official Speechify SDK for that language.
 - `native` — calls the REST API directly (no SDK).
 

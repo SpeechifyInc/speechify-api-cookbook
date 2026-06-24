@@ -1,0 +1,38 @@
+# Text-to-Speech: SSML & emotion (Python, native REST)
+
+The same as [`ssml-emotion`](../../sdk/ssml-emotion), but calling the REST API directly
+with `requests` instead of the `speechify-api` SDK.
+
+## Prerequisites
+
+- A Speechify API key — https://console.speechify.ai/api-keys
+- Python 3.10+ and [uv](https://docs.astral.sh/uv/)
+
+## Setup
+
+```bash
+cp .env.example .env   # then paste your SPEECHIFY_API_KEY
+uv sync
+```
+
+## Run
+
+```bash
+uv run main.py
+```
+
+You'll get an `output.mp3` that shifts emotion and prosody across the sentence.
+
+## What it does
+
+- `POST https://api.speechify.ai/v1/audio/speech` with `Authorization: Bearer <key>`.
+- JSON body has SSML as the `input` value (single `<speak>` root), plus `voice_id`,
+  `audio_format`, and `model: "simba-english"` (full SSML + emotion support).
+- **Emotion:** `<speechify:style emotion="...">` — one of `angry`, `cheerful`, `sad`,
+  `terrified`, `relaxed`, `fearful`, `surprised`, `calm`, `assertive`, `energetic`,
+  `warm`, `direct`, `bright`.
+- **Prosody:** `<prosody rate="..." pitch="..." volume="...">` (named steps or
+  percentages). **Pauses:** `<break time="500ms" />`. **Emphasis:**
+  `<emphasis level="strong">`.
+
+> SSML reference: https://docs.speechify.ai/tts/guides/ssml

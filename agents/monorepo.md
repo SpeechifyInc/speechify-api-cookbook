@@ -23,14 +23,14 @@ speechify-cookbook/
 └── recipes/
     └── audio/                 # Text-to-Speech today; will expand
         ├── typescript/
-        │   ├── sdk/quickstart/
-        │   └── native/quickstart/
+        │   ├── sdk/<recipe>/      # @speechify/api
+        │   └── native/<recipe>/   # fetch + REST
         ├── python/
-        │   ├── sdk/quickstart/
-        │   └── native/quickstart/
+        │   ├── sdk/<recipe>/      # speechify-api
+        │   └── native/<recipe>/   # requests + REST
         └── bash/
-            ├── sdk/.gitkeep        # no bash SDK; placeholder
-            └── native/.gitkeep     # curl recipes go here
+            ├── sdk/.gitkeep       # no bash SDK; placeholder
+            └── native/<recipe>/   # curl + jq
 ```
 
 ## Why this shape
@@ -50,11 +50,11 @@ speechify-cookbook/
 
 ## Languages and tooling
 
-| Language      | Manager  | Workspace member?                           | Notes                                                                       |
-| ------------- | -------- | ------------------------------------------- | --------------------------------------------------------------------------- |
-| TypeScript/JS | **pnpm** | Yes — matched by `recipes/*/typescript/*/*` | Run with `tsx`. Versions come from the `catalog:` in `pnpm-workspace.yaml`. |
-| Python        | **uv**   | No (managed per-recipe)                     | Each recipe has its own `pyproject.toml`; run with `uv run`.                |
-| Bash          | —        | No (curl scripts)                           | Native flavor only. Each recipe is a `.sh` you can copy-paste.              |
+| Language      | Manager  | Workspace member?                           | Notes                                                                                  |
+| ------------- | -------- | ------------------------------------------- | -------------------------------------------------------------------------------------- |
+| TypeScript/JS | **pnpm** | Yes — matched by `recipes/*/typescript/*/*` | Run with `tsx`. Versions come from the `catalog:` in `pnpm-workspace.yaml`.            |
+| Python        | **uv**   | No (managed per-recipe)                     | Each recipe has its own `pyproject.toml`; run with `uv run`.                           |
+| Bash          | —        | No (curl scripts)                           | Native flavor only. Each recipe is a `.sh` (curl + jq) you can copy-paste. `chmod +x`. |
 
 ## Naming rules
 
